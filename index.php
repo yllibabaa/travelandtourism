@@ -94,6 +94,47 @@
         margin-bottom: 20px;
       }
     }
+
+    .posts-grid {
+      text-align: center;
+      margin: 40px 0;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .post-card {
+      background-color: #f8f9fa;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: left;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .post-card h3 {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+
+    .post-card p {
+      font-size: 1em;
+      margin-bottom: 15px;
+    }
+
+    .post-card .read-more {
+      color: #007bff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .post-card .read-more:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 
@@ -101,6 +142,11 @@
   <?php get_header(); ?>
 
   <div class="content">
+  <ul>
+        <li><a href="index.php">Home</a></li>
+        <li><a href="index.php">Features</a></li>
+        <li><a href="features.php">Pricing</a></li>
+    </ul>
 
     <section class="travel-text">
       <h1>Explore the World</h1>
@@ -144,6 +190,25 @@
         Booking a trip has never been this easy — find the best deals, confirm in just a few clicks, and you're ready to explore. Your next destination is just a ticket away!
       </p>
     </div>
+
+    <section class="posts-grid">
+      <h2>Latest Posts</h2>
+      <div class="grid-container">
+        <?php
+        // WordPress Loop to fetch posts
+        if (have_posts()) :
+          while (have_posts()) : the_post(); ?>
+            <div class="post-card">
+              <h3><?php the_title(); ?></h3>
+              <p><?php echo wp_trim_words(get_the_content(), 20, '...'); ?></p>
+              <a href="<?php the_permalink(); ?>" class="read-more">Read More</a>
+            </div>
+          <?php endwhile;
+        else : ?>
+          <p>No posts found.</p>
+        <?php endif; ?>
+      </div>
+    </section>
 
   </div>
 
