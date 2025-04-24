@@ -6,11 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <ul>
-        <li><a href="index.php">Home</a></li>
-        <li><a href="index.php">Features</a></li>
-        <li><a href="index.php">Pricing</a></li>
-    </ul>
+
 
     
     

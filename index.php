@@ -142,12 +142,12 @@
   <?php get_header(); ?>
 
   <div class="content">
-  <ul>
-        <li><a href="index.php">Home</a></li>
-        <li><a href="index.php">Features</a></li>
-        <li><a href="features.php">Pricing</a></li>
-    </ul>
-
+      <ul>
+        <li><a href="">HOME</a></li>
+        <li><a href="features.php"></a>FEAUTERS</li>
+        <li><a href="features.php"></a>PRICING</li>
+      </ul>
+    
     <section class="travel-text">
       <h1>Explore the World</h1>
       <p>
